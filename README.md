@@ -64,7 +64,7 @@ Separation of formatting and content also makes it feasible to present the same 
 
 **Semantic UI** is a modern front-end development framework powered by LESS and jQuery.  It has a sleek, subtle, flat design that provides lightweight user experience.  
 
-*Semantic UI* content borrowed from <a target="_blank" rel="noopener noreferrer">[this page](https://www.sitepoint.com/introducing-semantic-ui-component-library/#:~:text=Semantic%20UI%20is%20a%20modern,a%20language%20for%20sharing%20UI%E2%80%9D.).</a>
+*Semantic UI* content borrowed from <a target="_blank" rel="noopener noreferrer">[this page](https://www.sitepoint.com/introducing-semantic-ui-component-library/#:~:text=Semantic%20UI%20is%20a%20modern,a%20language%20for%20sharing%20UI%E2%80%9D).</a>
 
 #### :sparkler: JavaScript :sparkler:
 
@@ -90,7 +90,7 @@ Separation of formatting and content also makes it feasible to present the same 
 
 **MongoDB** is a document-oriented NoSQL database used for high volume data storage.  Instead of using tables and rows like traditional databases, MongoDB makes use of collections and documents.  Documents consist of key-value pairs that are the basic unit of data and more closely resemble the JSON architecture.    
 
-*MongoDB* content borrowed from <a target="_blank" rel="noopener noreferrer>[this page](https://www.guru99.com/what-is-mongodb.html#:~:text=MongoDB%20is%20a%20document%2Doriented,use%20of%20collections%20and%20documents.&text=Collections%20contain%20sets%20of%20documents,equivalent%20of%20relational%20database%20tables.)</a>
+*MongoDB* content borrowed from <a target="_blank" rel="noopener noreferrer">[this page](https://www.guru99.com/what-is-mongodb.html#:~:text=MongoDB%20is%20a%20document%2Doriented,use%20of%20collections%20and%20documents.&text=Collections%20contain%20sets%20of%20documents,equivalent%20of%20relational%20database%20tables).</a>
 
 ### Author 
 
