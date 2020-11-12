@@ -23,7 +23,7 @@ This application uses MongoDB to create a back-end for a web applicaiton that tr
 
 ## Installation Instructions
 
-Users can clone this repository for the source code.  Or, use that app as [deployed on Heroku}(https://boiling-ridge-17711.herokuapp.com/).
+Users can clone this repository for the source code.  Or, use that app as [deployed on Heroku](https://boiling-ridge-17711.herokuapp.com/).
 
 ## Usage 
 
