@@ -1,44 +1,48 @@
-const API = {
-  async getLastWorkout() {
-    let res;
-    try {
-      res = await fetch("/api/workouts");
-    } catch (err) {
-      console.log(err)
-    }
-    const json = await res.json();
+var db = require("../models");
 
-    return json[json.length - 1];
-  },
-  async addExercise(data) {
-    const id = location.search.split("=")[1];
-
-    const res = await fetch("/api/workouts/" + id, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+module.exports = function (app) {
+  app.get("/api/workouts", (req, res) => {
+    db.Workout.find({}).then((workout) => {
+      res.json(workout);
     });
-
-    const json = await res.json();
-
-    return json;
-  },
-  async createWorkout(data = {}) {
-    const res = await fetch("/api/workouts", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
-    });
-
-    const json = await res.json();
-
-    return json;
-  },
-
-  async getWorkoutsInRange() {
-    const res = await fetch(`/api/workouts/range`);
-    const json = await res.json();
-
-    return json;
-  },
+  });
 };
+
+app.post("/api/workouts", async (req, res) => {
+  try {
+    const response = await db.Workout.create({ type: "workout" });
+    res.json(response);
+  } catch (err) {
+    console.log("This error occurred creating a workout: ", err);
+  }
+});
+
+app.put("/api/workouts/:id", ({ body, params }, res) => {
+  const workoutID = params.id;
+  let savedExercises = [];
+  db.Workout.find({ _id: workoutID }).then((dbWorkout) => {
+    savedExercises = dbWorkout[0].exercises;
+    res.json(dbWorkout[0].exercises);
+    let allExercises = [...savedExercises, body];
+    console.log(allExercises);
+    updateWorkout(allExercises);
+  });
+});
+
+function updateWorkout(exercises) {
+  db.Workout.findByIdAndUpdate(
+    workoutID,
+    { exercises: exercises },
+    (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+}
+
+app.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({}).then((workout) => {
+    res.json(workout);
+  });
+});
