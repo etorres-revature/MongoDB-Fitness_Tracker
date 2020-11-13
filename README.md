@@ -29,6 +29,22 @@ Users can clone this repository for the source code.  Or, use that app as [deplo
 
 The Fitness Tracker is [deployed on Heroku](https://boiling-ridge-17711.herokuapp.com/).
 
+With Fitness Tracker users can enter the different exercises that comprise each of their workouts.  From the homepage a user can chose to continue entering information about a previous workout with "Continue Workout", or enter information about a "New Workout".
+
+![FITNESS TRACKER home page](./public/assets/img/screenshots/fitness-tracker-home.png)
+
+On the next screen, there is a drop box to select the kind of workout being entered:  Resistance or Cardio.
+
+![FITNESS TRACKER choose an exercise type](./public/assets/img/screenshots/fitness-tracker-exercise-type.png)
+
+Depending on the choice of exercise type, the user will be presented with inputs to capture the information pertaining to that particular exercise type.  In the screenshot below, the user has chosen Resistance and is given the inputs necessary to capture a Resistance exercise. 
+
+![FITNESS TRACKER enter exercise information](./public/assets/img/screenshots/fitness-tracker-exercise-resistance.png)
+
+The workout information entered is stored in a MongoDB database.  The cumulated information is captured in the Fitness Tracker Workout Dashboard to give the user a graphical display of workouts and the exercises that comprised those workouts.
+
+![FITNESS TRACKER dashboard](./public/assets/img/screenshots/fitness-tracker-exercise-dashboard.png)
+
 ## Guidelines for Contributing
 
 For feature suggestions, or to make a contribution, please e-mail Eric D. Torres at the address provided below.
