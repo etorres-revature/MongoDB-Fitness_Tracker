@@ -1,3 +1,4 @@
+//jQuery to grab html elements in the exercise html
 const workoutTypeSelect = document.querySelector("#type");
 const cardioForm = document.querySelector(".cardio-form");
 const resistanceForm = document.querySelector(".resistance-form");
@@ -14,9 +15,11 @@ const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
 const newWorkout = document.querySelector(".new-workout");
 
+//creating global variables
 let workoutType = null;
 let shouldNavigateAway = false;
 
+//declaration of the initExercise function
 async function initExercise() {
   let workout;
 
@@ -29,8 +32,10 @@ async function initExercise() {
   }
 }
 
+//calling the initExercise function
 initExercise();
 
+//declaration of handleWorkoutTypeChange to show different forms for cardio type exercises than resistance type exercises
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -44,13 +49,15 @@ function handleWorkoutTypeChange(event) {
     cardioForm.classList.add("d-none");
     resistanceForm.classList.add("d-none");
   }
-
+//calling the validateInputs function
   validateInputs();
 }
 
+//declaration of validateInputs function
 function validateInputs() {
   let isValid = true;
 
+  //validation for resistance type exercises
   if (workoutType === "resistance") {
     if (nameInput.value.trim() === "") {
       isValid = false;
@@ -71,6 +78,7 @@ function validateInputs() {
     if (resistanceDurationInput.value.trim() === "") {
       isValid = false;
     }
+    //validation for cardio type exercises
   } else if (workoutType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
@@ -94,16 +102,19 @@ function validateInputs() {
   }
 }
 
+//declare handleFormSubmit function
 async function handleFormSubmit(event) {
   event.preventDefault();
 
   let workoutData = {};
 
+  //how to handle the submission of cardio type exercises
   if (workoutType === "cardio") {
     workoutData.type = "cardio";
     workoutData.name = cardioNameInput.value.trim();
     workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
+    //how to handle the submission of resistance type exercises
   } else if (workoutType === "resistance") {
     workoutData.type = "resistance";
     workoutData.name = nameInput.value.trim();
@@ -113,11 +124,15 @@ async function handleFormSubmit(event) {
     workoutData.duration = Number(resistanceDurationInput.value.trim());
   }
 
+  //calling the api.addExercise function
   await API.addExercise(workoutData);
+  //calling the clearInputs function
   clearInputs();
+  //running the success modal 
   toast.classList.add("success");
 }
 
+//declare function with success modal
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");
   if (shouldNavigateAway) {
@@ -125,6 +140,7 @@ function handleToastAnimationEnd() {
   }
 }
 
+//declaration of clearInputs function
 function clearInputs() {
   cardioNameInput.value = "";
   nameInput.value = "";
@@ -136,15 +152,19 @@ function clearInputs() {
   weightInput.value = "";
 }
 
+//logic to change the form when the workout type is changed cardio/resistance
 if (workoutTypeSelect) {
   workoutTypeSelect.addEventListener("change", handleWorkoutTypeChange);
 }
+
+//logic for what to do if completeButton is pushed
 if (completeButton) {
   completeButton.addEventListener("click", function (event) {
     shouldNavigateAway = true;
     handleFormSubmit(event);
   });
 }
+//logic for what to do if add exercise button pushed 
 if (addButton) {
   addButton.addEventListener("click", handleFormSubmit);
 }

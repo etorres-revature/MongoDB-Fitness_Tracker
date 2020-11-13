@@ -1,3 +1,5 @@
+//seed file for app to show how it is supposed to work
+//use for when there is no data in the database
 let mongoose = require("mongoose");
 let db = require("../models");
 

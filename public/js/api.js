@@ -1,4 +1,6 @@
+//API variable creating object of application functions
 const API = {
+  //get Last Workout function declaration
   async getLastWorkout() {
     let res;
     try {
@@ -10,6 +12,7 @@ const API = {
 
     return json[json.length - 1];
   },
+  //add exercise function declaration
   async addExercise(data) {
     const id = location.search.split("=")[1];
 
@@ -23,6 +26,7 @@ const API = {
 
     return json;
   },
+  //create workout function declaration
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
       method: "POST",
@@ -34,7 +38,7 @@ const API = {
 
     return json;
   },
-
+  //get workouts in range function declaration
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
     const json = await res.json();
