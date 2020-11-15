@@ -9,8 +9,12 @@
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
   },
-  "author": "",
-  "license": "ISC",
+  "repository" :{
+    "type": "git",
+    "url": "https://github.com/etorres-revature/MongoDB-Fitness_Tracker"
+  },
+  "author": "Eric D. Torres",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
     "mongoose": "^5.3.16",
