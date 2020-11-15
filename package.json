@@ -9,7 +9,7 @@
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
   },
-  "repository" :{
+  "repository": {
     "type": "git",
     "url": "https://github.com/etorres-revature/MongoDB-Fitness_Tracker"
   },
