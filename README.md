@@ -23,11 +23,11 @@ This application uses MongoDB to create a back-end for a web applicaiton that tr
 
 ## Installation Instructions
 
-Users can clone this repository for the source code.  Or, use that app as [deployed on Heroku](https://boiling-ridge-17711.herokuapp.com/).
+Users can clone this repository for the source code.  Or, use [Fitness Tracker](https://boiling-ridge-17711.herokuapp.com/) as deployed on Heroku.
 
 ## Usage 
 
-The Fitness Tracker is [deployed on Heroku](https://boiling-ridge-17711.herokuapp.com/).
+The [Fitness Tracker](https://boiling-ridge-17711.herokuapp.com/) is deployed on Heroku.
 
 With Fitness Tracker users can enter the different exercises that comprise each of their workouts.  From the homepage a user can chose to continue entering information about a previous workout with "Continue Workout", or enter information about a "New Workout".
 
