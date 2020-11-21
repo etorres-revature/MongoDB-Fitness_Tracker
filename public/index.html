@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/style.css" />
   <title>Fitness Tracker</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon/fitness-tracker-icon.png" />
+  <link rel="manifest" href="./dist/manifest.webmanifest" />
 </head>
 
 <body>
@@ -45,6 +46,22 @@
   <script src="/js/api.js"></script>
   <script src="/js/workout.js"></script>
   <script src="/js/index.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((registration) =>
+          console.log("The Service Worker has been registered", registration)
+        )
+        .catch((err) =>
+          console.log("Service Worker registration failed!!", err)
+        );
+    }
+  </script>
+  <noscript
+    >Please enable JavaScript to continue using this Progressive Web
+    Application.</noscript
+  >
 </body>
 
 </html>

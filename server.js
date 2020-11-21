@@ -2,6 +2,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const compression = require("compression");
 
 //dotenv local config file for mongo Atlas db
 require("dotenv").config();
@@ -14,7 +15,7 @@ const app = express();
 
 //using the morgan to log events on server
 app.use(logger("dev"));
-
+app.use(compression());
 //middleware for how to parse information from the body and for JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

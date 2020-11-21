@@ -1,0 +1,17 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is not neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/*!******************************!*\
+  !*** ./public/js/workout.js ***!
+  \******************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+eval("async function initWorkout() {\n  const lastWorkout = await API.getLastWorkout();\n  console.log(\"Last workout:\", lastWorkout);\n  if (lastWorkout) {\n    document\n      .querySelector(\"a[href='/exercise?']\")\n      .setAttribute(\"href\", `/exercise?id=${lastWorkout._id}`);\n\n    const workoutSummary = {\n      date: formatDate(lastWorkout.day),\n      totalDuration: lastWorkout.totalDuration,\n      numExercises: lastWorkout.exercises.length,\n      ...tallyExercises(lastWorkout.exercises),\n    };\n\n    renderWorkoutSummary(workoutSummary);\n  } else {\n    renderNoWorkoutText();\n  }\n}\n\nfunction tallyExercises(exercises) {\n  const tallied = exercises.reduce((acc, curr) => {\n    if (curr.type === \"resistance\") {\n      acc.totalDuration = (acc.totalDuration || 0) + curr.duration;\n      acc.totalWeight = (acc.totalWeight || 0) + curr.weight;\n      acc.totalSets = (acc.totalSets || 0) + curr.sets;\n      acc.totalReps = (acc.totalReps || 0) + curr.reps;\n    } else if (curr.type === \"cardio\") {\n      acc.totalDuration = (acc.totalDuration || 0) + curr.duration;\n      acc.totalDistance = (acc.totalDistance || 0) + curr.distance;\n    }\n    return acc;\n  }, {});\n  return tallied;\n}\n\nfunction formatDate(date) {\n  const options = {\n    weekday: \"long\",\n    year: \"numeric\",\n    month: \"long\",\n    day: \"numeric\",\n  };\n\n  return new Date(date).toLocaleDateString(options);\n}\n\nfunction renderWorkoutSummary(summary) {\n  const container = document.querySelector(\".workout-stats\");\n\n  const workoutKeyMap = {\n    date: \"Date\",\n    totalDuration: \"Total Workout Duration\",\n    numExercises: \"Exercises Performed\",\n    totalWeight: \"Total Weight Lifted\",\n    totalSets: \"Total Sets Performed\",\n    totalReps: \"Total Reps Performed\",\n    totalDistance: \"Total Distance Covered\",\n  };\n\n  Object.keys(summary).forEach((key) => {\n    const p = document.createElement(\"p\");\n    const strong = document.createElement(\"strong\");\n\n    strong.textContent = workoutKeyMap[key];\n    const textNode = document.createTextNode(`: ${summary[key]}`);\n\n    p.appendChild(strong);\n    p.appendChild(textNode);\n\n    container.appendChild(p);\n  });\n}\n\nfunction renderNoWorkoutText() {\n  const container = document.querySelector(\".workout-stats\");\n  const p = document.createElement(\"p\");\n  const strong = document.createElement(\"strong\");\n  strong.textContent = \"You have not created a workout yet!\";\n\n  p.appendChild(strong);\n  container.appendChild(p);\n}\n\ninitWorkout();\n\n\n//# sourceURL=webpack://mongoose_skeleton/./public/js/workout.js?");
+/******/ })()
+;

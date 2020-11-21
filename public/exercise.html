@@ -15,6 +15,7 @@
       type="image/png"
       href="/assets/img/favicon/fitness-tracker-icon.png"
     />
+    <link rel="manifest" href="./dist/manifest.webmanifest" />
   </head>
 
   <body>
@@ -119,5 +120,21 @@
     <div id="toast">Workout Added Successfully!</div>
     <script src="/js/api.js"></script>
     <script src="/js/exercise.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((registration) =>
+            console.log("The Service Worker has been registered", registration)
+          )
+          .catch((err) =>
+            console.log("Service Worker registration failed!!", err)
+          );
+      }
+    </script>
+    <noscript
+      >Please enable JavaScript to continue using this Progressive Web
+      Application.</noscript
+    >
   </body>
 </html>

@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "watch": "nodemon server.js",
-    "seed": "node seeders/seed.js"
+    "seed": "node seeders/seed.js",
+    "prestart": "npm run webpack --watch",
+    "start": "node server.js",
+    "webpack": "webpack"
   },
   "repository": {
     "type": "git",
@@ -16,10 +18,16 @@
   "author": "Eric D. Torres",
   "license": "MIT",
   "dependencies": {
+    "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "mongoose": "^5.3.16",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox": "0.0.0",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "devDependencies": {}
 }

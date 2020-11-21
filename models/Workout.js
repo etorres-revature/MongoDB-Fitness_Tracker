@@ -38,7 +38,7 @@ const WorkoutSchema = new Schema({
 // });
 
 //adding the mongoose schema for Workout collections to use the workoutSchema
-const Workout = mongoose.model("Workout", WorkoutSchema);
+const Workout = mongoose.model("workout", WorkoutSchema);
 
 //exporting the module for use in the application
 module.exports = Workout;
