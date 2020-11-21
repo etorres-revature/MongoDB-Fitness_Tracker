@@ -106,18 +106,6 @@ define("./service-worker.js",['./workbox-eece048d'], function (workbox) { 'use s
   workbox.precacheAndRoute([{
     "url": "autoapi.js",
     "revision": "18c512e81022df18a9a535031e5b59a8"
-  }, {
-    "url": "autoexercise.js",
-    "revision": "5c1418bfb4657bda5d809473a4f924a9"
-  }, {
-    "url": "autoindex.js",
-    "revision": "1205fe4860d274de6ba98d050cb1c877"
-  }, {
-    "url": "autostats.js",
-    "revision": "975a0d446d0d7ea5a448f325ea5f1201"
-  }, {
-    "url": "autoworkout.js",
-    "revision": "a115d26754c1f72d035a4ebdf0cd9868"
   }], {});
   workbox.registerRoute("/.(?:html|htm|xml)$/", new workbox.StaleWhileRevalidate({
     "cacheName": "markup",
