@@ -52,7 +52,7 @@ const config = {
         /\.map$/,
         /manifest\.webmanifest$/,
         /bundle\.js/,
-        /api.js\.js/,
+        /api\.js/,
         /exercise\.js/,
         /index\.js/,
         /stats\.js/,

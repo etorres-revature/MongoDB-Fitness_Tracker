@@ -81,54 +81,44 @@ if (!self.define) {
     });
   };
 }
-define("./service-worker.js",['./workbox-eece048d'], function (workbox) { 'use strict';
+define("./service-worker.js",['./workbox-cc6fced9'], function (workbox) { 'use strict';
 
-  /**
-  * Welcome to your Workbox-powered service worker!
-  *
-  * You'll need to register this file in your web app.
-  * See https://goo.gl/nhQhGp
-  *
-  * The rest of the code is auto-generated. Please don't update this file
-  * directly; instead, make changes to your Workbox build configuration
-  * and re-run your build process.
-  * See https://goo.gl/2aRDsh
-  */
+	/**
+	* Welcome to your Workbox-powered service worker!
+	*
+	* You'll need to register this file in your web app.
+	* See https://goo.gl/nhQhGp
+	*
+	* The rest of the code is auto-generated. Please don't update this file
+	* directly; instead, make changes to your Workbox build configuration
+	* and re-run your build process.
+	* See https://goo.gl/2aRDsh
+	*/
 
-  workbox.skipWaiting();
-  workbox.clientsClaim();
-  /**
-   * The precacheAndRoute() method efficiently caches and responds to
-   * requests for URLs in the manifest.
-   * See https://goo.gl/S9QRab
-   */
-
-  workbox.precacheAndRoute([{
-    "url": "autoapi.js",
-    "revision": "18c512e81022df18a9a535031e5b59a8"
-  }], {});
-  workbox.registerRoute("/.(?:html|htm|xml)$/", new workbox.StaleWhileRevalidate({
-    "cacheName": "markup",
-    plugins: [new workbox.ExpirationPlugin({
-      maxAgeSeconds: 31536000,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute("/.(?css|js)$/", new workbox.StaleWhileRevalidate({
-    "cacheName": "assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 500,
-      maxAgeSeconds: 31536000,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute("/.(?png|jpg|jpeg|gif|bmp|webp|svg|ico)$/", new workbox.CacheFirst({
-    "cacheName": "images",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 500,
-      maxAgeSeconds: 31536000,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
+	workbox.skipWaiting();
+	workbox.clientsClaim();
+	workbox.registerRoute("/.(?:html|htm|xml)$/", new workbox.StaleWhileRevalidate({
+	  "cacheName": "markup",
+	  plugins: [new workbox.ExpirationPlugin({
+	    maxAgeSeconds: 31536000,
+	    purgeOnQuotaError: true
+	  })]
+	}), 'GET');
+	workbox.registerRoute("/.(?css|js)$/", new workbox.StaleWhileRevalidate({
+	  "cacheName": "assets",
+	  plugins: [new workbox.ExpirationPlugin({
+	    maxEntries: 500,
+	    maxAgeSeconds: 31536000,
+	    purgeOnQuotaError: true
+	  })]
+	}), 'GET');
+	workbox.registerRoute("/.(?png|jpg|jpeg|gif|bmp|webp|svg|ico)$/", new workbox.CacheFirst({
+	  "cacheName": "images",
+	  plugins: [new workbox.ExpirationPlugin({
+	    maxEntries: 500,
+	    maxAgeSeconds: 31536000,
+	    purgeOnQuotaError: true
+	  })]
+	}), 'GET');
 
 });
