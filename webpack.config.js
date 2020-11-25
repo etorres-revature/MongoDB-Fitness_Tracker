@@ -28,7 +28,7 @@ const config = {
       fingerprints: false,
       name: "Fitness Workout Tracker",
       short_name: "Exercise Tracker",
-      theme_color: "#444444",
+      theme_color: "#B700FF",
       background_color: "#ffffff",
       start_url: "/",
       display: "standalone",
